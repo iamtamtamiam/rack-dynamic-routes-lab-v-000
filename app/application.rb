@@ -4,11 +4,11 @@ class Application
     resp = Rack::Response.new
     req = Rack::Request.new(env)
  
-    if !req.path.match(/items/).empty?
+    if req.path.match(/items/)
       @@items.each do |item|
         resp.write "#{item.price}"
       end
-    elsif req.path.match(/items/).empty?
+    elsif req.path.match(/items/)
       resp.write "Item not found."
       resp.status = 400
     else
