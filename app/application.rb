@@ -5,7 +5,7 @@ class Application
     req = Rack::Request.new(env)
  
     if req.path.match(/items/)
-      item_searched = req.path.split("/songs/").last #turn /songs/Sorry into Sorry
+      item_searched = req.path.split("/items/").last #turn /items/Item_name into Item_name
         if item = @@items.find{|items| items.name == item_searched}
           resp.write "#{item.price}"
         elsif 
