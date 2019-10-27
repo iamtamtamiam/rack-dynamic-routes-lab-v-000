@@ -7,10 +7,11 @@ class Application
     if req.path.match(/items/)
       @@items.each do |item|
         if @@items.find{|all_item| all_item.name == item}
-        resp.write "#{item.price}"
+          resp.write "#{item.price}"
         elsif 
-        resp.write "Item not found."
-        resp.status = 400
+          resp.write "Item not found."
+          resp.status = 400
+        end 
       end
     else
       resp.write "Item not found. Route not found."
