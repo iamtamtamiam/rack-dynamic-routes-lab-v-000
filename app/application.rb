@@ -6,8 +6,9 @@ class Application
  
     if req.path.match(/items/)
       @@items.each do |item|
-        if 
+        if @@items.find{|all_item| all_item.name == item}
         resp.write "#{item.price}"
+        
       end
     elsif req.path.match(/items/)
       resp.write "Item not found."
